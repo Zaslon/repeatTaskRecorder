@@ -61,7 +61,7 @@
 		$lastExecutedDateTime = new DateTime($record["lastExecuted"]);
 		$lastExecutedDate = $lastExecutedDateTime->setTime(0, 0, 0); // 時刻を0:00:00にリセット
 		echo_h($lastExecutedDate->format('Y/m/d'));
-		echo("</li><li>");
+		echo("</li>");
 		
 		// 現在日時の日付部分のみを取得（0時基準）
 		$nowDateTime = new DateTime();
@@ -72,8 +72,16 @@
 		$daysDiff = $diff->days;
 		
 		if ($daysDiff == 0) {
+			echo("<li>");
 			echo_h("今日");
+		} elseif ($daysDiff < 5) {
+			echo("<li>");
+			echo_h($daysDiff . "日前");
+		} elseif ($daysDiff <10) {
+			echo("<li class='color1'>");
+			echo_h($daysDiff . "日前");
 		} else {
+			echo("<li class='color2'>");
 			echo_h($daysDiff . "日前");
 		}
 		echo("</li>");

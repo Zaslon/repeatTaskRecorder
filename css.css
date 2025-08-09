@@ -26,3 +26,11 @@ li {
     vertical-align: middle;
     display: inline-block;
 }
+
+form:has(li.color1){
+	background-color: yellow;
+}
+
+form:has(li.color2){
+	background-color: rgb(255, 131, 131);
+}
